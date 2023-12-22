@@ -50,15 +50,16 @@ start_dir = ""
 if 0 <= start_l - 1 < len(matrix) and matrix[start_l - 1][start_c] in "F7|":
     start_dir = "up"
     start_l -= 1
-elif 0 <= start_l + 1 < len(matrix) and matrix[start_l + 1][start_c] in "JL|":
+elif  0 <= start_l + 1 < len(matrix) and matrix[start_l + 1][start_c] in "JL|":
     start_dir = "down"
     start_l += 1
-elif 0 <= start_c + 1 < len(matrix[0]) and matrix[start_l][start_c + 1] in "-J7":
+elif  0 <= start_c + 1 < len(matrix[0]) and matrix[start_l][start_c + 1] in "-J7":
     start_dir = "right"
     start_c += 1
-elif 0 <= start_c - 1 < len(matrix[0]) and matrix[start_l][start_c - 1] in "-FL":
+elif  0 <= start_c - 1 < len(matrix[0]) and matrix[start_l][start_c - 1] in "-FL":
     start_dir = "left"
     start_c -= 1
+
 
 steps = 1
 new_l, new_c, new_dir = next_pos_and_dir(matrix, start_l, start_c, start_dir)
@@ -69,7 +70,5 @@ while matrix[new_l][new_c] != "S":
     new_l, new_c, new_dir = next_pos_and_dir(matrix, new_l, new_c, new_dir)
     matrix[old_l][old_c] = "@"
 
-print((steps + 1) // 2)
-
-for m in matrix:
-    print("".join(m))
+for elem in matrix:
+    print("".join(elem))
